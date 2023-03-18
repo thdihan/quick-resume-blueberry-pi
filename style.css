@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap');
+
+
+.cv-image {
+    width: 35%;
+}
+
+.main-content {
+    height: 80vh;
+
+}
+
+.main-header {
+    font-family: 'Lobster Two', cursive;
+}
