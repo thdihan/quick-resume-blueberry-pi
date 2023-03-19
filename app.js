@@ -11,6 +11,8 @@ var usersDashboard = require('./routes/index');
 var usersProfile = require('./routes/create_custom_profile');
 var usersResume = require('./routes/generate_resume');
 
+var usersExplore = require('./routes/index');
+
 // var usersCv = require('./routes/cv1');
 var app = express();
 
@@ -30,6 +32,7 @@ app.use('/login', usersRouter);
 app.use('/user_dashboard', usersDashboard);
 app.use('/create_custom_profile', usersProfile);
 app.use('/generate_resume', usersResume);
+app.use('/explore.html', usersExplore);
 // app.use('/cv1', usersCv);
 
 // catch 404 and forward to error handler
