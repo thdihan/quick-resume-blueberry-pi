@@ -14,6 +14,13 @@ router.post('/create', function(req, res, next) {
       console.log(userPassword);
 
 
+       // store all the user input data
+  
+    
+    // req.session.user={profile:userProfile,utype:userType};
+
+
+
   const fs = require('fs');
 
   const content = userEmail;
@@ -49,7 +56,9 @@ router.post('/create', function(req, res, next) {
     
       if (err) throw err;
       console.log("Successful");
-      res.redirect('/user_dashboard');
+      
+      res.redirect('/user_dashboard?result='+userEmail);
+      //res.redirect('/user_dashboard');
 
       });
      

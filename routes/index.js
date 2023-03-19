@@ -40,14 +40,37 @@ router.get('/basic_info', function(req, res, next) {
 
 
 router.get('/user_dashboard.html', function(req, res, next) {
-  res.render('user_dashboard', { title: 'Express' });
+
+  console.log(req.query.result);
+  let profiles;
+  var sql = 'Select username from registration where email= ?';
+  db.query(sql,req.query.result,(err, results)=>  { 
+        
+    console.log("This is data :" , results);
+    profiles=results;
+    console.log(results);
+    if(err) throw err;
+    
+    res.render('user_dashboard.ejs');
+  }); 
+ 
 });
 
 /* GET login page. */
 router.get('/user_dashboard', function(req, res, next) {
-  res.render('user_dashboard', { title: 'Express' });
+  console.log(req.query.result);
+  let profiles;
+  var sql = 'Select username from registration where email= ?';
+  db.query(sql,req.query.result,(err, results)=>  { 
+        
+    console.log("This is data :" , results);
+    profiles=results;
+    console.log(results[0]);
+    if(err) throw err;
+    
+    res.render('user_dashboard.ejs');
+  }); 
 });
-
 
 
 router.get('/create_custom_profile.html', function(req, res, next) {
@@ -62,9 +85,20 @@ router.get('/create_custom_profile', function(req, res, next) {
 
 
 router.get('/generate_resume.html', function(req, res, next) {
+  let Email;
+const fs = require('fs');
+fs.readFile('./DATA.txt', 'utf8', (err, data) => {
+if (err) {
+ console.error(err);
+ return;
+}
+console.log(data + "xxxxxxxxx");
+Email=data;
+});
+  
   let profiles;
   var sql = 'Select profile_id, profile_name from custom_profile';
-  db.query(sql,(err, results)=>  { 
+  db.query(sql,(err, results,fields)=>  { 
         
     console.log("This is data :" , results);
     profiles=results;
@@ -119,7 +153,25 @@ router.get('/cv1', function(req, res, next) {
     res.render('cv1.ejs',{data:results[0]});
    
   });
+
+/* GET login page. */
+
+
+
+
 });
+
+
+router.get('/explore.html', function(req, res, next) {
+  res.render('explore', { title: 'Express' });
+});
+
+/* GET login page. */
+router.get('/explore', function(req, res, next) {
+  res.render('explore', { title: 'Express' });
+});
+
+
 
 
 

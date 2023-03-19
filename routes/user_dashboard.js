@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 var db=require('./database');
 //router.get('/form', function(req, res, next) { 
-res.render('cv1'); 
+res.render('user_dashbord'); 
 
 
 
 
-router.get('/cv1', function(req, res, next) {
+router.get('/user_dashbord', function(req, res, next) {
   console.log(req.query.result);
   
   //console.log(data);

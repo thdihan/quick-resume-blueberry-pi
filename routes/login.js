@@ -42,7 +42,17 @@ router.post('/create', function(req, res, next) {
 
       if (results.length > 0) {
         console.log('Login successful');
-        res.redirect('/user_dashboard');
+
+         // store all the user input data
+    const userEmail=req.body.email;
+ 
+   
+    
+    // req.session.user={profile:userProfile,utype:userType};
+
+      res.redirect('/user_dashboard?result='+userEmail);
+
+        
 
       } else {
         let alert = require('alert');

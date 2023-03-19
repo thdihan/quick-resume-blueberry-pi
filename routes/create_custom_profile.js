@@ -41,7 +41,8 @@ router.post('/create', function(req, res, next) {
     
       if (err) throw err;
       console.log("Successful");
-      res.redirect('/user_dashboard');
+      
+    res.redirect('/user_dashboard?result='+Email);
 
       });
  
